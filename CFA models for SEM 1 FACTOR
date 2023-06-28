@@ -1,0 +1,13 @@
+#One Factor Structural Equation modelling
+library(lavaan)
+#Load the Lavaan library
+data(PoliticalDemocracy)
+
+#Load the data and define model
+politics.model <- 'poldemo60 =~ y1 + y2 +y3 +y4'
+
+#Analyze the model with cfa()
+politics.fit <- cfa(model = politics.model, data = PoliticalDemocracy)
+
+#summarize the model
+summary(politics.fit, standardized = TRUE, fit.measures =TRUE)
